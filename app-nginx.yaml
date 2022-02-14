@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-nginx-svc
+  name: nginx-svc
   labels:
     app: nginx
 spec:
@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-nginx
+  name: nginx-dc
   labels:
     app: nginx
 spec:
@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.21
+        image: nginx:1.21.6-alpine
         ports:
         - containerPort: 80

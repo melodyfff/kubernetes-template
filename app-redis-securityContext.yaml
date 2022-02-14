@@ -21,7 +21,10 @@ spec:
         name: redis
         ports:
         - containerPort: 6379
-          protocol: TCP   
+          protocol: TCP
+        securityContext: # 如果不指定运行用户可能报错： Error: container has runAsNonRoot and image will run as root 
+          runAsUser: 1000
+          runAsNonRoot: true        
 ---          
 apiVersion: v1
 kind: Service
